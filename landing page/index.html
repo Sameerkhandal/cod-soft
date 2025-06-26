@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LumoTask – Conquer Your Day with AI-Powered Productivity</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background: #111;
+    }
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      padding: 80px 0 60px 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      color: #00f2fe;
+      margin-bottom: 18px;
+      text-align: center;
+      text-shadow: 1px 1px 3px #000;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .feature-card {
+      background: rgba(30,30,30,0.95);
+      border-radius: 18px;
+      padding: 28px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      color: #fff;
+      text-align: left;
+      border-left: 4px solid #00f2fe;
+      min-height: 180px;
+      border-bottom: 1px solid #333;
+    }
+    .feature-card h3 {
+      color: #00f2fe;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .why-list {
+      margin: 0 auto;
+      max-width: 700px;
+      padding-left: 0;
+      list-style: none;
+      background: rgba(30,30,30,0.95);
+      border-radius: 14px;
+      border: 1px solid #333;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      padding: 24px 18px;
+    }
+    .why-list li {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+      padding-left: 1.2em;
+      position: relative;
+      color: #fff;
+    }
+    .why-list li::before {
+      content: "✓";
+      color: #00f2fe;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .how-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .how-step {
+      background: rgba(30,30,30,0.95);
+      border-radius: 14px;
+      padding: 22px 18px;
+      min-width: 220px;
+      max-width: 260px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+      border-top: 3px solid #00f2fe;
+      border-bottom: 1px solid #333;
+    }
+    .how-step span {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .testimonial {
+      background: rgba(30,30,30,0.95);
+      border-radius: 14px;
+      padding: 24px 18px;
+      max-width: 340px;
+      color: #fff;
+      font-style: italic;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+      border-left: 4px solid #00f2fe;
+      border-bottom: 1px solid #333;
+      position: relative;
+    }
+    .testimonial::before {
+      content: "“";
+      font-size: 2.5rem;
+      color: #00f2fe;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      opacity: 0.4;
+    }
+    .testimonial .author {
+      display: block;
+      margin-top: 16px;
+      font-style: normal;
+      color: #00f2fe;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .pricing-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .plan {
+      background: rgba(30,30,30,0.95);
+      border-radius: 16px;
+      padding: 32px 24px;
+      min-width: 240px;
+      max-width: 300px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.16);
+      border-top: 4px solid #00f2fe;
+      border-bottom: 1px solid #333;
+      position: relative;
+    }
+    .plan-title {
+      font-size: 1.3rem;
+      color: #00f2fe;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .plan-price {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+    .plan-features li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .plan .cta-button {
+      margin-top: 10px;
+      font-size: 1rem;
+      padding: 10px 22px;
+    }
+    .contact-info {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: 1.1rem;
+      background: rgba(30,30,30,0.95);
+      border-radius: 12px;
+      padding: 30px 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      border: 1px solid #333;
+    }
+    .contact-info strong {
+      color: #00f2fe;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 40px 18px 40px;
+      background: #111;
+      border-bottom: 1.5px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      color: #00f2fe;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a:focus {
+      background: #222;
+      color: #00f2fe;
+    }
+    .hero-section {
+      background: linear-gradient(120deg, #181818 60%, #232323 100%);
+      padding-bottom: 60px;
+      border-bottom: 2px solid #222;
+    }
+    .hero-content {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 4px #000;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 32px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(90deg, #4f8cff, #38e6c5);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(79, 140, 255, 0.13);
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+      margin: 8px 4px;
+      letter-spacing: 1px;
+    }
+    .cta-button:hover, .cta-button:focus {
+      background: linear-gradient(90deg, #38e6c5, #4f8cff);
+      transform: translateY(-2px) scale(1.04);
+      outline: none;
+      color: #fff;
+    }
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+    /* Responsive tweaks */
+    @media (max-width: 800px) {
+      .features-list, .pricing-table, .testimonials, .how-steps {
+        grid-template-columns: 1fr !important;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .navbar {
+        padding: 20px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 14px;
+        margin-top: 10px;
+      }
+      section {
+        padding: 60px 0 40px 0;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero-section" id="home">
+    <nav class="navbar">
+      <h2 class="logo">LumoTask</h2>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#why">Why LumoTask?</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#testimonials">Customer Love</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Conquer Your Day with LumoTask</h1>
+      <p>Smarter tasks. Sharper focus. More done—powered by AI.</p>
+      <a href="#pricing" class="cta-button">Try Free for 14 Days</a>
+      <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" class="cta-button" style="background:#222;color:#00f2fe;margin-left:12px;">Watch Demo</a>
+    </div>
+  </header>
+
+  <section id="features">
+    <h2 class="section-title">🔥 Key Features</h2>
+    <div class="features-list">
+      <div class="feature-card">
+        <h3>Smart Task Input</h3>
+        <p>Type your tasks naturally—LumoTask understands and sorts them automatically.</p>
+      </div>
+      <div class="feature-card">
+        <h3>AI Scheduler</h3>
+        <p>Our intelligent system plans your day based on urgency, deadlines, and your peak focus hours.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Focus Mode</h3>
+        <p>A distraction-free timer mode with customizable ambient sounds to help you stay on track.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Team Collaboration</h3>
+        <p>Assign tasks, share project boards, and chat in real time—perfect for teams and freelancers alike.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Cross-Platform Access</h3>
+        <p>Use LumoTask on web, mobile, and browser extensions. Sync across all your devices.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Calendar Integration</h3>
+        <p>Seamlessly connect your Google, Outlook, or Apple calendars.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2 class="section-title">Why LumoTask?</h2>
+    <ul class="why-list">
+      <li>Increase your daily productivity by up to 30%</li>
+      <li>Never miss a deadline again with smart reminders</li>
+      <li>Built for both solo creators and agile teams</li>
+      <li>Designed for the remote work era</li>
+    </ul>
+  </section>
+
+  <section id="how">
+    <h2 class="section-title">How It Works</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <span>1️⃣</span>
+        Sign up in under 60 seconds
+      </div>
+      <div class="how-step">
+        <span>2️⃣</span>
+        Add your tasks in plain English
+      </div>
+      <div class="how-step">
+        <span>3️⃣</span>
+        Watch LumoTask auto-organize your day
+      </div>
+      <div class="how-step">
+        <span>4️⃣</span>
+        Use Focus Mode and stay locked in
+      </div>
+      <div class="how-step">
+        <span>5️⃣</span>
+        Track progress and collaborate effortlessly
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2 class="section-title">Customer Love</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        "LumoTask has made my freelance workflow so smooth. I can’t imagine planning my day without it."
+        <span class="author">— Alex M., UX Designer</span>
+      </div>
+      <div class="testimonial">
+        "The built-in AI scheduler is an absolute game-changer."
+        <span class="author">— Samira K., Startup Founder</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2 class="section-title">💵 Pricing Plans</h2>
+    <div class="pricing-table">
+      <div class="plan">
+        <div class="plan-title">Free Plan</div>
+        <div class="plan-price">$0</div>
+        <ul class="plan-features">
+          <li>10 tasks/day</li>
+          <li>1 project</li>
+          <li>Limited Focus Mode features</li>
+        </ul>
+        <a href="#" class="cta-button">Start Free</a>
+      </div>
+      <div class="plan">
+        <div class="plan-title">Pro Plan</div>
+        <div class="plan-price">$9<span style="font-size:1rem;">/month</span></div>
+        <ul class="plan-features">
+          <li>Unlimited tasks</li>
+          <li>AI scheduler</li>
+          <li>Full Focus Mode</li>
+          <li>Calendar sync</li>
+        </ul>
+        <a href="#" class="cta-button">Try Pro</a>
+      </div>
+      <div class="plan">
+        <div class="plan-title">Team Plan</div>
+        <div class="plan-price">$25<span style="font-size:1rem;">/month</span></div>
+        <ul class="plan-features">
+          <li>Everything in Pro</li>
+          <li>Multi-user collaboration</li>
+          <li>Admin control</li>
+          <li>Team analytics</li>
+        </ul>
+        <a href="#" class="cta-button">Start Team Trial</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:18px; color:#fff;">All plans include a <strong>14-day free trial</strong>. No credit card needed.</p>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">📬 Contact Us</h2>
+    <div class="contact-info">
+      <p><strong>Support Email:</strong> <a href="mailto:support@lumotask.com" style="color:#00f2fe;">support@lumotask.com</a></p>
+      <p><strong>Business Inquiries:</strong> <a href="mailto:business@lumotask.com" style="color:#00f2fe;">business@lumotask.com</a></p>
+      <p><strong>Follow Us on Twitter/X:</strong> <a href="https://twitter.com/lumotask" target="_blank" style="color:#00f2fe;">@lumotask</a></p>
+      <p><strong>Head Office:</strong> Remote-first, based in Berlin, Germany</p>
+    </div>
+  </section>
